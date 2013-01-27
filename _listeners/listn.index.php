@@ -249,7 +249,7 @@ function tempContentDrop(){
 					<h3>An Indie Game Developer Studio</h3>
 					<p>Empehsis on AJAX and SCSS for dynamic content and compatability,
 					This Space-themed news/portfolio website turned into a very solid project.</p>
-					<a href="#article/2"><h5>View Project</h5></a>
+					<a href="#:article/2"><h5>View Project</h5></a>
 				</section>
 				<section class="img">
 					<img class="longhead" src="./content/screens/longhead/zsg_long.jpg" />
@@ -264,7 +264,7 @@ function tempContentDrop(){
 	<h3>A Social Networking Platform for Gamers</h3>
 	<p>Starting off as a busniess concept, focus was a clean and simple look,
 	using light colors and minimal css3 for browser performance.</p>
-	<a href="#article/3"><h5>View Project</h5></a>
+	<a href="#:article/3"><h5>View Project</h5></a>
 	</section>
 	<section class="img">
 	<img class="longhead" src="./content/screens/longhead/logos_long.jpg" />
@@ -279,7 +279,7 @@ function tempContentDrop(){
 	<h3>Finding The Best Way to Tell a Story</h3>
 	<p>While comming up with a backstory to a game for fun, I needed a way
 	to display my ideas logcially for mass consumtion. This is what happened.</p>
-	<a href="#article/4"><h5>View Project</h5></a>
+	<a href="#:article/4"><h5>View Project</h5></a>
 	</section>
 	<section class="img">
 	<img class="longhead" src="./content/screens/longhead/warframe_long.jpg" />
@@ -294,7 +294,7 @@ function tempContentDrop(){
 	<h3>Web Designer/Developer Portfolio</h3>
 	<p>My old portfolio, designed to be easy to navigate,
 	and display my work in an organized way.</p>
-	<a href="#article/5"><h5>View Project</h5></a>
+	<a href="#:article/5"><h5>View Project</h5></a>
 	</section>
 	<section class="img">
 	<img class="longhead" src="./content/screens/longhead/myold_long.jpg" />

@@ -7,17 +7,6 @@
 
 <link href="./css/index.css" rel="stylesheet" type="text/css" />
 
-
-<script>
-  document.createElement('header');
-  document.createElement('footer');
-  document.createElement('section');
-  document.createElement('aside');
-  document.createElement('nav');
-  document.createElement('article');
-</script>
-
-
 </head>
 <body>
 

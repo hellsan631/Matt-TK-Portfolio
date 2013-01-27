@@ -1,4 +1,8 @@
 <?php
+
+include_once '../includes/defines.php';
+
+
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 	if(isset($_POST['submitPage'])){
@@ -87,7 +91,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 									<h1>Zer0Sum Games</h1>
 									<div class="secondary">
 										<h4>Client: Daniel DiCicco</h4><h4>Role: Creative Producer</h4><h4 class="right">Date: 09/2012</h4>
-										<p class="tags"><a href="#:portfolio/design">Design</a>, <a href="#:portfolio/develop">Developer</a>, <a href="#:portfolio/graphic">Graphic</a>
+										<p class="tags"><a href="'.AJAX_CHAR.'portfolio/design">Design</a>, <a href="'.AJAX_CHAR.'portfolio/develop">Developer</a>, <a href="'.AJAX_CHAR.'portfolio/graphic">Graphic</a>
 											<a href="./content/www/zsg/index.php" class="right">View Example</a>
 										</p>
 									</div>
@@ -130,7 +134,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 									<h1>Project Logos</h1>
 									<div class="secondary">
 										<h4>Client: Blake Zwikler</h4><h4>Role: Creative Producer</h4><h4 class="right">Date: 07/2012</h4>
-										<p class="tags"><a href="#:portfolio/design">Design</a>, <a href="#:portfolio/develop">Developer</a>
+										<p class="tags"><a href="'.AJAX_CHAR.'portfolio/design">Design</a>, <a href="'.AJAX_CHAR.'portfolio/develop">Developer</a>
 										</p>
 									</div>
 								</header>
@@ -169,7 +173,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 									<h1>Warframe Timeline</h1>
 									<div class="secondary">
 										<h4>Client: N/A</h4><h4>Role: Design Concept</h4><h4 class="right">Date: 10/2012</h4>
-										<p class="tags"><a href="#:portfolio/design">Design</a>
+										<p class="tags"><a href="'.AJAX_CHAR.'portfolio/design">Design</a>
 										</p>
 									</div>
 								</header>
@@ -204,7 +208,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 									<h1>Web Portfolio</h1>
 									<div class="secondary">
 										<h4>Client: N/A</h4><h4>Role: Creative Production</h4><h4 class="right">Date: 10/2010</h4>
-										<p class="tags"><a href="#:portfolio/design">Design</a>, <a href="#:portfolio/develop">Developer</a>
+										<p class="tags"><a href="'.AJAX_CHAR.'portfolio/design">Design</a>, <a href="'.AJAX_CHAR.'portfolio/develop">Developer</a>
 										</p>
 									</div>
 								</header>
@@ -249,7 +253,7 @@ function tempContentDrop(){
 					<h3>An Indie Game Developer Studio</h3>
 					<p>Empehsis on AJAX and SCSS for dynamic content and compatability,
 					This Space-themed news/portfolio website turned into a very solid project.</p>
-					<a href="#:article/2"><h5>View Project</h5></a>
+					<a href="'.AJAX_CHAR.'article/2"><h5>View Project</h5></a>
 				</section>
 				<section class="img">
 					<img class="longhead" src="./content/screens/longhead/zsg_long.jpg" />
@@ -264,7 +268,7 @@ function tempContentDrop(){
 	<h3>A Social Networking Platform for Gamers</h3>
 	<p>Starting off as a busniess concept, focus was a clean and simple look,
 	using light colors and minimal css3 for browser performance.</p>
-	<a href="#:article/3"><h5>View Project</h5></a>
+	<a href="'.AJAX_CHAR.'article/3"><h5>View Project</h5></a>
 	</section>
 	<section class="img">
 	<img class="longhead" src="./content/screens/longhead/logos_long.jpg" />
@@ -279,7 +283,7 @@ function tempContentDrop(){
 	<h3>Finding The Best Way to Tell a Story</h3>
 	<p>While comming up with a backstory to a game for fun, I needed a way
 	to display my ideas logcially for mass consumtion. This is what happened.</p>
-	<a href="#:article/4"><h5>View Project</h5></a>
+	<a href="'.AJAX_CHAR.'article/4"><h5>View Project</h5></a>
 	</section>
 	<section class="img">
 	<img class="longhead" src="./content/screens/longhead/warframe_long.jpg" />
@@ -294,7 +298,7 @@ function tempContentDrop(){
 	<h3>Web Designer/Developer Portfolio</h3>
 	<p>My old portfolio, designed to be easy to navigate,
 	and display my work in an organized way.</p>
-	<a href="#:article/5"><h5>View Project</h5></a>
+	<a href="'.AJAX_CHAR.'article/5"><h5>View Project</h5></a>
 	</section>
 	<section class="img">
 	<img class="longhead" src="./content/screens/longhead/myold_long.jpg" />

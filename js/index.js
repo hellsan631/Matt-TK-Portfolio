@@ -1,12 +1,17 @@
 var current = getUrlVars();
-var curradd = current[0]+"/"+current[1];
+var curradd = current[0]+splitkey+current[1];
 var article = false;
 var articleStore = [];
 var popupStatus = 0;
+var $bodyheader = $('#body-header');
+var $body = $("body");
+var $background = $("#background");
+var $content = $("#content");
+var $root = $('html, body');
 
 $(document).ready(function(){
 
-	$("#background").live('click', function () {
+	$background.live('click', function () {
 		popupClose();
 	});
 	//Press Escape event!
@@ -22,7 +27,7 @@ $(document).ready(function(){
 
 	var sidemenu = assembleMenu(current[0]);
 
-	$('#menu-con a[href$="#:'+sidemenu+'"]').find('span').addClass('selected-mi');
+	$('#menu-con a[href$="'+ajaxkey+sidemenu+'"]').find('span').addClass('selected-mi');
 
 	$('#content-menu .menu-item').live('click', function () {
 
@@ -70,7 +75,22 @@ $(document).ready(function(){
     });
 
 	$('#content a').live('click', function () {
-		setTimeout(function () {
+		linkhandler();
+
+	});
+
+	$(window).resize(function () {
+		centerPopup();
+	});
+
+});//end of document ready
+
+function linkhandler(link){
+
+	var anchor = $(link).attr('anchor');
+
+    if(anchor == null || href == " " || href == ""){
+    	setTimeout(function () {
 
 			var request = getUrlVars();
 
@@ -84,28 +104,37 @@ $(document).ready(function(){
 			}
 
 		}, 300);
-	});
 
-	$(window).resize(function () {
-		centerPopup();
-	});
+    	return false;
 
-});//end of document ready
+    }else{
+
+	    $root.animate({
+	        scrollTop: $(anchor).offset().top
+	    }, 500, function () {
+	        window.location.hash = anchor;
+	    });
+
+	    return false;
+	}
+
+}
 
 function welcome(){
+
 	setTimeout(function () {
 
-		$("#body-header").animate({height: '42px', padding: '10px'}, 700);
+		$bodyheader.animate({height: '42px', padding: '10px'}, 700);
 
 		setTimeout(function () {
 
-			$("#body-header").animate({height: '0px'}, 700);
+			$bodyheader.animate({height: '0px'}, 700);
 
 			setTimeout(function () {
-				$("#body-header").attr('style', '');
+				$bodyheader.attr('style', '');
 			},1000);
 
-			$("#body-header").attr('style', '');
+			$bodyheader.attr('style', '');
 
 		}, 3500);
 
@@ -129,25 +158,25 @@ function determineContent(){
 	if(stringeq(current[0],"")){
 		current[0] = "portfolio";
 		current[1] = "grid";
-		curradd = current[0]+"/"+current[1];
+		curradd = current[0]+splitkey+current[1];
 	}else if(stringeq(current[0],"http:")){
 		current[0] = "portfolio";
 		current[1] = "grid";
-		curradd = current[0]+"/"+current[1];
+		curradd = current[0]+splitkey+current[1];
 	}else if(stringeq(current[0],"article")){//doesn't correctly set current[1]
 		article = true;
 		articleStore[0] = current[0];
 		articleStore[1] = current[1];
 		current[0] = "portfolio";
 		current[1] = "design";
-		curradd = current[0]+"/"+current[1];
+		curradd = current[0]+splitkey+current[1];
 	}else if(stringeq(current[0],"blogid")){
 		article = true;
 		articleStore[0] = current[0];
 		articleStore[1] = current[1];
 		current[0] = "blog";
 		current[1] = "web";
-		curradd = current[0]+"/"+current[1];
+		curradd = current[0]+splitkey+current[1];
 	}else{
 		article = false;
 	}
@@ -162,14 +191,14 @@ function determineContent(){
 
 function assembleMenu(page){
 	if(stringeq(page,"portfolio")){
-		return page+"/grid";
+		return page+splitkey+"grid";
 	}else if(stringeq(page,"profile")){
-		return page+"/who";
+		return page+splitkey+"who";
 	}else if(stringeq(page,"blog")){
-		return page+"/web";
+		return page+splitkey+"web";
 	}
 
-	return page+"/business";
+	return page+splitkey+"business";
 
 }
 
@@ -179,7 +208,7 @@ function contentAjax(page, doc){
 		  cache: false,
 		  data: {submitType: '0', submitPage: page, submitDoc: doc},
 		  success: function(data) {
-			  $("#content").html(data);
+			  $content.html(data);
 		  }
 	});
 }
@@ -190,9 +219,9 @@ function menuAjax(){
 		$("#content-menu").load("./content/menu/"+current[0]+".php");
 
 		var interval = setInterval(function() {
-	        if($('#content-menu a[href$="#:'+curradd+'"]').length > 0) {
+	        if($('#content-menu a[href$="'+ajaxkey+curradd+'"]').length > 0) {
 	           clearInterval(interval);
-	           $('#content-menu a[href$="#:'+curradd+'"]').find('span').addClass('selected-mi');
+	           $('#content-menu a[href$="'+ajaxkey+curradd+'"]').find('span').addClass('selected-mi');
 	        }
 	    }, 300);
 	}, 100);
@@ -220,7 +249,7 @@ function stringeq(string1, string2){
 
 function getUrlVars(){
     var vars = [], hash;
-    var hashes = window.location.href.slice(window.location.href.indexOf('#:')+2).split('/');
+    var hashes = window.location.href.slice(window.location.href.indexOf(ajaxkey)+ajaxkey.length).split(splitkey);
     for(var i = 0; i < hashes.length; i++)
     {
         hash = hashes[i].split('=');
@@ -244,7 +273,6 @@ function popupImgDisplay(img){
 		if(recurse)
 			return recurse;
 
-
 		popupStatus = 1;
 		var bodysize = false;
 		var recurse = false;
@@ -262,9 +290,9 @@ function popupImgDisplay(img){
 		if(widthnum < 0){widthnum = 0;bodysize = true;}
 
 		if(bodysize){
-			$("body").css("overflow", "show");
+			$body.css("overflow", "show");
 		}else{
-			$("body").css("overflow", "hidden");
+			$body.css("overflow", "hidden");
 		}
 
 		csshash = {
@@ -277,20 +305,20 @@ function popupImgDisplay(img){
 
 		$("#nodice").css(csshash);
 
-		$("#background").css("z-index", "10");
-		$("#background").animate({opacity: 1, leaveTransforms:false}, 500);
+		$background.css("z-index", "10");
+		$background.animate({opacity: 1, leaveTransforms:false}, 500);
 
 	}, 50);
 }
 
 function popupClose(){
 	popupStatus = 0;
-	$("#background").animate({opacity: 0, leaveTransforms:false}, 500, function() {
-		$("#background").css({
+	$background.animate({opacity: 0, leaveTransforms:false}, 500, function() {
+		$background.css({
 			"z-index": "-1"
 		});
 	});
-	$("body").css("overflow", "auto");
+	$body.css("overflow", "auto");
 }
 
 function centerPopup(){
@@ -311,9 +339,9 @@ function centerPopup(){
 		if(widthnum < 0){widthnum = 0;bodysize = true;}
 
 		if(bodysize){
-			$("body").css("overflow", "show");
+			$body.css("overflow", "show");
 		}else{
-			$("body").css("overflow", "hidden");
+			$body.css("overflow", "hidden");
 		}
 
 		csshash = {

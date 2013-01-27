@@ -1,5 +1,5 @@
 <section id="grid">
-	<a href="#:article/2">
+	<a href="<?php echo AJAX_CHAR; ?>article/2">
 		<span>
 			<article class="grid-item" style="background: url('./content/screens/pagefit/zsg/thumbs/zsg_thumb_1.jpg')">
 				<div class="info">
@@ -10,7 +10,7 @@
 			</article>
 		</span>
 	</a>
-	<a href="#:article/3">
+	<a href="<?php echo AJAX_CHAR; ?>article/3">
 		<span>
 			<article class="grid-item" style="background: url('./content/screens/pagefit/logos/thumbs/logos_thumb_2.jpg')">
 				<div class="info">
@@ -21,7 +21,7 @@
 			</article>
 		</span>
 	</a>
-	<a href="#:article/4">
+	<a href="<?php echo AJAX_CHAR; ?>article/4">
 		<span>
 			<article class="grid-item" style="background: url('./content/screens/pagefit/warframe/thumbs/warframe_thumb_2.jpg')">
 				<div class="info">
@@ -32,7 +32,7 @@
 			</article>
 		</span>
 	</a>
-	<a href="#:article/5">
+	<a href="<?php echo AJAX_CHAR; ?>article/5">
 		<span>
 			<article class="grid-item" style="background: url('./content/screens/pagefit/myold/thumbs/myold_thumb_1.jpg')">
 				<div class="info">

@@ -1,8 +1,10 @@
+<?php include_once './includes/defines.php'; ?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
+<?php
+	echo SEO;
+?>
 <title>My Website</title>
 
 <link href="./css/index.css" rel="stylesheet" type="text/css" />
@@ -17,19 +19,19 @@
 <nav id="menu-con">
 	<header id="menu-header"></header>
 	<ul>
-		<li class="menu-item"><a href="#:portfolio/grid"><span>Portfolio</span></a></li>
-		<li class="menu-item"><a href="#:profile/who"><span>Profile</span></a></li>
-		<li class="menu-item"><a href="#:blog/web"><span>Blog</span></a></li>
-		<li class="menu-item"><a href="#:contact/business"><span>Contact</span></a></li>
+		<li class="menu-item"><a href="<?php echo AJAX_CHAR; ?>portfolio/grid"><span>Portfolio</span></a></li>
+		<li class="menu-item"><a href="<?php echo AJAX_CHAR; ?>profile/who"><span>Profile</span></a></li>
+		<li class="menu-item"><a href="<?php echo AJAX_CHAR; ?>blog/web"><span>Blog</span></a></li>
+		<li class="menu-item"><a href="<?php echo AJAX_CHAR; ?>contact/business"><span>Contact</span></a></li>
 	</ul>
 </nav>
 
 <section id="content-con">
 	<nav id="content-menu">
-		<?php include 'content/menu/portfolio.php'; ?>
+		<?php include './content/menu/portfolio.php'; ?>
 	</nav>
 	<section id="content">
-		<?php include '_listeners/grid.php'; ?>
+		<?php include './_listeners/grid.php'; ?>
 	</section>
 </section>
 
@@ -38,8 +40,12 @@
 	</div>
 </div>
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script type="text/javascript" src="./js/index.js" ></script>
+<script async src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script>
+var splitkey = "<?php echo AJAX_SPLIT; ?>";
+var ajaxkey = "<?php echo AJAX_CHAR; ?>";
+</script>
+<script defer src="./js/index.js" ></script>
 
 </body>
 </html>

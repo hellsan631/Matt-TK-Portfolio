@@ -1,0 +1,16 @@
+#
+# Uncomment the statement below if you want to make use of
+# HTTP authentication and it does not already work.
+# This could be required if you are for example using PHP via Apache CGI.
+#
+#<IfModule mod_rewrite.c>
+#RewriteEngine on
+#RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
+#</IfModule>
+
+<ifModule mod_deflate.c>
+<filesMatch ".(js|css|php)$">
+SetOutputFilter DEFLATE
+</filesMatch>
+</ifModule>
+

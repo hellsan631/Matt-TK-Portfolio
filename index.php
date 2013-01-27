@@ -37,10 +37,10 @@
 
 <section id="content-con">
 	<nav id="content-menu">
-
+		<?php include 'content/menu/portfolio.php'; ?>
 	</nav>
 	<section id="content">
-
+		<?php include '_listeners/grid.php'; ?>
 	</section>
 </section>
 

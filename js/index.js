@@ -222,6 +222,8 @@ function contentAjax(page, doc){
 function menuAjax(){
 	setTimeout(function () {
 
+		console.log(current.length);
+
 		if(current.length > 4)
 			return false;
 

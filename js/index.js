@@ -30,7 +30,7 @@ $(document).ready(function(){
 
 	$('#menu-con a[href$="'+ajaxkey+sidemenu+'"]').find('span').addClass('selected-mi');
 
-	$('#content-menu .menu-item').live('click', function () {
+	$('#content-menu .menu-item').on('click', function () {
 
 		$(this).parent().find('.selected-mi').removeClass('selected-mi');
 		$(this).find('span').addClass('selected-mi');
@@ -48,15 +48,15 @@ $(document).ready(function(){
 		}, 300);
     });
 
-	$('.pictures img').live('click', function () {
+	$('.pictures img').on('click', function () {
 		popupimage(this);
 	});
 
-	$('.image').live('click', function () {
+	$('.image').on('click', function () {
 		popupimage(this);
 	});
 
-	$('#menu-con .menu-item').live('click', function () {
+	$('#menu-con .menu-item').on('click', function () {
 
 		$(this).parent().find('.selected-mi').removeClass('selected-mi');
 		$(this).find('span').addClass('selected-mi');
@@ -75,7 +75,7 @@ $(document).ready(function(){
 		}, 300);
     });
 
-	$('#content a').live('click', function () {
+	$('#content a').on('click', function () {
 		linkhandler(this);
 		//testAnim();
 	});
@@ -90,13 +90,11 @@ function linkhandler(link){
 
 	var anchor = $(link).attr('anchor');
 
-	console.log(anchor);
-
     if(anchor == null || anchor == " " || anchor == ""){
     	setTimeout(function () {
 
 			var request = getUrlVars();
-
+			console.log(request);
 			if(stringeq(current[0],request[0]) && stringeq(current[1],request[1]) && !article){
 				//do nothing if they are equal
 			}else if(request.length > 4 || request.length < 2){
@@ -209,7 +207,7 @@ function contentAjax(page, doc){
 
 	if($loadcount > 0){
 
-		$content.animate({marginLeft: -1280}, 700);
+		$content.animate({marginLeft: -1280}, 500);
 
 		$.ajax({ url: '_listeners/listn.index.php',
 			  type: 'post',
@@ -218,8 +216,8 @@ function contentAjax(page, doc){
 			  success: function(data) {
 				  setTimeout(function() {
 					  $content.html(data);
-					  $content.animate({marginLeft: 0}, 1000);
-				  }, 500);
+					  $content.animate({marginLeft: 0}, 800);
+				  }, 400);
 			  }
 		});
 	}else{
@@ -281,6 +279,7 @@ function stringeq(string1, string2){
 
 function getUrlVars(){
     var vars = [], hash;
+    console.log(vars);
     var hashes = window.location.href.slice(window.location.href.indexOf(ajaxkey)+ajaxkey.length).split(splitkey);
     for(var i = 0; i < hashes.length; i++)
     {
@@ -345,7 +344,7 @@ function popupImgDisplay(img){
 
 function popupClose(){
 	popupStatus = 0;
-	$background.animate({opacity: 0}, 700, function() {
+	$background.animate({opacity: 0}, 500, function() {
 		$background.css({
 			"z-index": "-1"
 		});

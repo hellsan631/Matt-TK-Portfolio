@@ -8,6 +8,7 @@ var $body = $("body");
 var $background = $("#background");
 var $content = $("#content");
 var $root = $('html, body');
+var $loadcount = 0;
 
 $(document).ready(function(){
 
@@ -76,7 +77,7 @@ $(document).ready(function(){
 
 	$('#content a').live('click', function () {
 		linkhandler(this);
-
+		//testAnim();
 	});
 
 	$(window).resize(function () {
@@ -205,24 +206,42 @@ function assembleMenu(page){
 }
 
 function contentAjax(page, doc){
-	$content.fadeOut(300);
-	$.ajax({ url: '_listeners/listn.index.php',
-		  type: 'post',
-		  cache: false,
-		  data: {submitType: '0', submitPage: page, submitDoc: doc},
-		  success: function(data) {
-			  setTimeout(function() {
+
+	if($loadcount > 0){
+
+		$content.animate({marginLeft: -1280}, 700);
+
+		$.ajax({ url: '_listeners/listn.index.php',
+			  type: 'post',
+			  cache: false,
+			  data: {submitType: '0', submitPage: page, submitDoc: doc},
+			  success: function(data) {
+				  setTimeout(function() {
+					  $content.html(data);
+					  $content.animate({marginLeft: 0}, 1000);
+				  }, 500);
+			  }
+		});
+	}else{
+		$.ajax({ url: '_listeners/listn.index.php',
+			  type: 'post',
+			  cache: false,
+			  data: {submitType: '0', submitPage: page, submitDoc: doc},
+			  success: function(data) {
 				  $content.html(data);
-				  $content.fadeIn(500);
-			  }, 200);
-		  }
-	});
+			  }
+		});
+	}
+
+	$loadcount++;
+}
+
+function testAnim(){
+	  $content.animate({marginLeft: -1280}, 700);
 }
 
 function menuAjax(){
 	setTimeout(function () {
-
-		console.log(current.length);
 
 		if(current.length > 4)
 			return false;

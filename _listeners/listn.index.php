@@ -50,8 +50,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 							& People Who Inspire Me</h5>
 						</header>
 						<menu>
-							<a href="#joe"><img class="headlink" src="./images/joeface200-1.jpg" alt="Musician" /></a>
-							<a href="#pg"><img class="headlink" src="./images/pgface200.jpg" alt="Musician" /></a>
+							<a href="#" anchor="#joe"><img class="headlink" src="./images/joeface200-1.jpg" alt="Musician" /></a>
+							<a href="#" anchor="#pg"><img class="headlink" src="./images/pgface200.jpg" alt="Musician" /></a>
 						</menu>
 						<article class="background" style="background: url(\'./images/pgbg2.jpg\') no-repeat;">
 							<h1><a id="pg">Paul Gilbert</a></h1>
@@ -75,7 +75,44 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 								and multiple Grammy Award nominee.
 							</p>
 						</article>
-						<article class="background" style="background: url(\'./images/galaxy1.jpg\') no-repeat;"></article>
+						<article class="desc">
+							Cras mi justo, porttitor eu lobortis aliquet, auctor vel mi. Proin mattis lorem in nisl interdum blandit.
+							Curabitur ultricies dui eget nisl iaculis luctus. Etiam id pellentesque sapien. Curabitur iaculis, nisi lobortis sollicitudin
+							commodo, nulla quam malesuada justo, nec suscipit mauris orci a ligula. Cras tellus mauris, ultrices sit amet adipiscing id,
+							pellentesque nec mi.
+						</article>
+						<article class="background" style="background: url(\'./images/galaxy1.jpg\') no-repeat;">
+						</article>
+						<article class="desc">
+							Cras mi justo, porttitor eu lobortis aliquet, auctor vel mi. Proin mattis lorem in nisl interdum blandit.
+							Curabitur ultricies dui eget nisl iaculis luctus. Etiam id pellentesque sapien. Curabitur iaculis, nisi lobortis sollicitudin
+							commodo, nulla quam malesuada justo, nec suscipit mauris orci a ligula. Cras tellus mauris, ultrices sit amet adipiscing id,
+							pellentesque nec mi.
+						</article>
+						<article class="background" style="background: url(\'./images/galaxy1.jpg\') no-repeat;">
+						</article>
+						<article class="desc">
+							Cras mi justo, porttitor eu lobortis aliquet, auctor vel mi. Proin mattis lorem in nisl interdum blandit.
+							Curabitur ultricies dui eget nisl iaculis luctus. Etiam id pellentesque sapien. Curabitur iaculis, nisi lobortis sollicitudin
+							commodo, nulla quam malesuada justo, nec suscipit mauris orci a ligula. Cras tellus mauris, ultrices sit amet adipiscing id,
+							pellentesque nec mi.
+						</article>
+						<article class="background" style="background: url(\'./images/galaxy1.jpg\') no-repeat;">
+						</article>
+						<article class="desc">
+							Cras mi justo, porttitor eu lobortis aliquet, auctor vel mi. Proin mattis lorem in nisl interdum blandit.
+							Curabitur ultricies dui eget nisl iaculis luctus. Etiam id pellentesque sapien. Curabitur iaculis, nisi lobortis sollicitudin
+							commodo, nulla quam malesuada justo, nec suscipit mauris orci a ligula. Cras tellus mauris, ultrices sit amet adipiscing id,
+							pellentesque nec mi.
+						</article>
+						<article class="background" style="background: url(\'./images/galaxy1.jpg\') no-repeat;">
+						</article>
+						<article class="desc">
+							Cras mi justo, porttitor eu lobortis aliquet, auctor vel mi. Proin mattis lorem in nisl interdum blandit.
+							Curabitur ultricies dui eget nisl iaculis luctus. Etiam id pellentesque sapien. Curabitur iaculis, nisi lobortis sollicitudin
+							commodo, nulla quam malesuada justo, nec suscipit mauris orci a ligula. Cras tellus mauris, ultrices sit amet adipiscing id,
+							pellentesque nec mi.
+						</article>
 					</section>
 				';
 

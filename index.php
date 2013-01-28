@@ -40,7 +40,7 @@
 	</div>
 </div>
 
-<script async src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script defer src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script>
 var splitkey = "<?php echo AJAX_SPLIT; ?>";
 var ajaxkey = "<?php echo AJAX_CHAR; ?>";

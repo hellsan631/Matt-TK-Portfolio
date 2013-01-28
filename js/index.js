@@ -75,7 +75,7 @@ $(document).ready(function(){
     });
 
 	$('#content a').live('click', function () {
-		linkhandler();
+		linkhandler(this);
 
 	});
 
@@ -89,14 +89,16 @@ function linkhandler(link){
 
 	var anchor = $(link).attr('anchor');
 
-    if(anchor == null || href == " " || href == ""){
+	console.log(anchor);
+
+    if(anchor == null || anchor == " " || anchor == ""){
     	setTimeout(function () {
 
 			var request = getUrlVars();
 
 			if(stringeq(current[0],request[0]) && stringeq(current[1],request[1]) && !article){
 				//do nothing if they are equal
-			}else if(request.length > 4){
+			}else if(request.length > 4 || request.length < 2){
 				//do nothing if it cannot understand the request
 			}else{
 				determineContent();
@@ -110,9 +112,9 @@ function linkhandler(link){
     }else{
 
 	    $root.animate({
-	        scrollTop: $(anchor).offset().top
-	    }, 500, function () {
-	        window.location.hash = anchor;
+	        scrollTop: $(anchor).offset().top - 100
+	    }, 700, function () {
+	        window.location.hash = current[0]+splitkey+current[1];
 	    });
 
 	    return false;
@@ -203,19 +205,23 @@ function assembleMenu(page){
 }
 
 function contentAjax(page, doc){
+	$content.fadeOut(300);
 	$.ajax({ url: '_listeners/listn.index.php',
 		  type: 'post',
 		  cache: false,
 		  data: {submitType: '0', submitPage: page, submitDoc: doc},
 		  success: function(data) {
-			  $content.html(data);
+			  setTimeout(function() {
+				  $content.html(data);
+				  $content.fadeIn(500);
+			  }, 200);
 		  }
 	});
 }
 
 function menuAjax(){
 	setTimeout(function () {
-		var curradd = current[0]+"/"+current[1];
+		var curradd = current[0]+splitkey+current[1];
 		$("#content-menu").load("./content/menu/"+current[0]+".php");
 
 		var interval = setInterval(function() {
@@ -306,14 +312,14 @@ function popupImgDisplay(img){
 		$("#nodice").css(csshash);
 
 		$background.css("z-index", "10");
-		$background.animate({opacity: 1, leaveTransforms:false}, 500);
+		$background.animate({opacity: 1}, 700);
 
 	}, 50);
 }
 
 function popupClose(){
 	popupStatus = 0;
-	$background.animate({opacity: 0, leaveTransforms:false}, 500, function() {
+	$background.animate({opacity: 0}, 700, function() {
 		$background.css({
 			"z-index": "-1"
 		});

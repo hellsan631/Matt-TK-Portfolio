@@ -221,7 +221,12 @@ function contentAjax(page, doc){
 
 function menuAjax(){
 	setTimeout(function () {
+
+		if(current.length > 4)
+			return false;
+
 		var curradd = current[0]+splitkey+current[1];
+
 		$("#content-menu").load("./content/menu/"+current[0]+".php");
 
 		var interval = setInterval(function() {

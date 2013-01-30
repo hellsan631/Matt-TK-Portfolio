@@ -27,12 +27,14 @@
 		<img src="./images/content/007.jpg" />
 	</section>
 	<section id="thumbnails">
-		<div id="playtoggle" class="icon icon-pause"></div>
-		<div id="left-arrow" class="icon icon-arrow-left"></div>
+		<div id="playtoggle" class="ui-button"><div class="icon icon-pause"></div></div>
+		<div id="left-arrow" class="ui-button"><div class="icon icon-arrow-left"></div></div>
 		<div id="thumbcon">
 
 		</div>
-		<div id="right-arrow" class="icon icon-arrow-right"></div>
+		<div id="right-arrow" class="ui-button"><div class="icon icon-arrow-right"></div></div>
+	</section>
+	<section id="progressbar">
 	</section>
 </section>
 

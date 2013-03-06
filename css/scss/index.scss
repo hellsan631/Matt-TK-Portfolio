@@ -131,6 +131,17 @@ H5{font-size:18px;line-height:22px;}
 		}
 	}
 
+	.hidden{
+		position:absolute;
+		display:none;
+		opacity:0;
+	}
+
+	h3{
+		padding:30px 15px;
+		padding-bottom:0px;
+	}
+
 	.background{
 		width:960px;
 		height:250px;
@@ -211,23 +222,77 @@ H5{font-size:18px;line-height:22px;}
 }
 
 .headimg{
-	padding:10px;
+	.background{
+		height:250px;
+		position:relative;
+		background-position:top center;
 
-	img{
-		margin:50px 0px 50px 85px;
+		&:hover{
+			height:400px;
+			@include transition(all 0.7s ease);
+		}
+
+		h1{
+			margin-top:10px;
+			top:0px;
+			right:0px;
+			position:absolute;
+		}
+
+		p{
+			font-family: 'Lato', sans-serif;
+			font-weight:300;
+			font-size:12px;line-height:20px;
+			letter-spacing:1px;
+			bottom:0px;
+			right:0px;
+			padding:10px 30px;
+			cursor:default;
+			position:absolute;
+		}
 	}
 
-	.circle{
-		@include border-radius(120px);
-		border: 10px solid rgba(130,130,130,0.4);
-		width:200px;
-		height:200px;
+	.alt{
+		p{
+			left:0px;
+			right:auto;
+		}
+
+		h1{
+			left:0px;
+			right:auto;
+		}
 	}
+}
+
+.headimger{
+	width:920px;
+	font-family: 'Lato', sans-serif;
+	font-weight:300;
+	font-size:13px;line-height:22px;
+	color: rgba(80,80,80,1);
+	padding:20px 20px;
+	padding-top:15px;
+	margin-top:-10px;
+	border-bottom: 1px solid rgb(180,180,180);
+
+	letter-spacing:1px;
+	opacity:0.8;
+	@include bgcolor(rgb(235,235,235),1);
+	@include transition(all 0.7s ease);
+
+	&:hover{
+		opacity:0.95;
+		@include bgcolor(rgb(225,225,225),1);
+		color: rgba(60,60,60,1);
+		@include transition(all 0.7s ease);
+	}
+
 }
 
 #body-header{
 	position:fixed;
-	z-index:10;
+	z-index:3;
 	@include dimentions(98%,0px);
 	border-bottom: 1px solid rgb(210,210,210);
 	@include centerthis;
@@ -359,9 +424,10 @@ H5{font-size:18px;line-height:22px;}
 			bottom:-14px;
 			left:0;
 			padding:10px;
-			font-family: 'Ubuntu', sans-serif;
-			font-weight:400;
-			font-size:14px;line-height:20px;
+			font-family: 'Lato', sans-serif;
+			font-weight:300;
+			font-size:12px;line-height:20px;
+
 
 
 			&:hover{
@@ -665,21 +731,22 @@ H5{font-size:18px;line-height:22px;}
 	@include transition(all 0.5s ease);
 	position:fixed;
 	@include dimentions(100%,100%);
-	z-index: -1;
+	z-index: -2;
 	@include bgcolor(rgb(0,0,0),0.8);
 	@include zero;
+	display:none;
 
 	#nodice{
 		@include dimentions(1280px,730px);
 		padding:10px;
 		@include bgcolor(rgb(255,255,255),1);
-		z-index:11;
+		z-index:-1;
 		position:fixed;
 
 		img{
 			//@include dimentions(1280px,730px);
 			display:block;
-			z-index:12;
+			z-index:1000;
 		}
 	}
 

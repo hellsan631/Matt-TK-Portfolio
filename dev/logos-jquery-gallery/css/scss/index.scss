@@ -181,19 +181,24 @@ H5{font-size:18px;line-height:22px;}
 			background-repeat: no-repeat;
 			cursor:pointer;
 			z-index:22;
+			@include transition(all 0.5s ease);
 		}
 
 		.icon-play {
 			background-position: 0 0;
+			@include transition(all 0.5s ease);
 		}
 		.icon-pause {
 			background-position: -32px 0;
+			@include transition(all 0.5s ease);
 		}
 		.icon-arrow-right {
 			background-position: -64px 0;
+			@include transition(all 0.5s ease);
 		}
 		.icon-arrow-left {
 			background-position: -96px 0;
+			@include transition(all 0.5s ease);
 		}
 	}
 }

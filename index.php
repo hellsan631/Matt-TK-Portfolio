@@ -19,6 +19,7 @@
 <nav id="menu-con">
 	<header id="menu-header"></header>
 	<ul>
+		<li class="menu-item"><a href="<?php echo AJAX_CHAR; ?>tour/start"><span>Tour</span></a></li>
 		<li class="menu-item"><a href="<?php echo AJAX_CHAR; ?>portfolio/grid"><span>Portfolio</span></a></li>
 		<li class="menu-item"><a href="<?php echo AJAX_CHAR; ?>profile/who"><span>Profile</span></a></li>
 		<li class="menu-item"><a href="<?php echo AJAX_CHAR; ?>blog/web"><span>Blog</span></a></li>

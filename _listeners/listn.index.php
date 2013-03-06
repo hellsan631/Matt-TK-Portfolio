@@ -22,6 +22,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 			$submitDoc = "web";
 		}else if(strpos($submitPage, 'contact') !== false){
 			$submitDoc = "business";
+		}else if(strpos($submitPage, 'tour') !== false){
+			$submitDoc = "start";
 		}else{
 			$submitPage = "portfolio";
 			$submitDoc = "design";
@@ -30,12 +32,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 	if($_POST['submitType'] == 0){
 
+		if(strpos($submitPage, 'admin') !== false){
+			include "./admin.php";
+
+			exit;
+		}
+
 		if(strpos($submitPage, 'portfolio') !== false){
 			if(strpos($submitDoc,'design') !== false){
 				tempContentDrop();
 			}else if(strpos($submitDoc,'grid') !== false){
 
 				include "./grid.php";
+
+				exit;
+			}else if(strpos($submitDoc, 'admin') !== false){
+				include "./admin.php";
 
 				exit;
 			}
@@ -113,6 +125,200 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 							commodo, nulla quam malesuada justo, nec suscipit mauris orci a ligula. Cras tellus mauris, ultrices sit amet adipiscing id,
 							pellentesque nec mi.
 						</article>
+					</section>
+				';
+
+				echo $echo;
+
+				exit;
+			}else if(strpos($submitDoc,'hobbies') !== false){
+
+				$echo = '
+					<section class="thewho">
+						<header>
+							<h1>My Hobbies</h1><br />
+							<h5>These Are My Many Interests<br />
+							& The Things That Drive Me</h5>
+						</header>
+						<menu>
+							<a href="#" anchor="#art"><img class="headlink" src="./images/music200.jpg" alt="Creativity" /></a>
+							<a href="#" anchor="#tech"><img class="headlink" src="./images/oldpc.jpg" alt="Technology" /></a>
+							<a href="#" anchor="#sci"><img class="headlink" src="./images/science.jpg" alt="Science" /></a>
+							<a href="#" anchor="#entertain"><img class="headlink" src="./images/movie.jpg" alt="Entertainment" /></a>
+						</menu>
+						<h3>Methods of Creativity</h3>
+						<section class="headimg" id="art">
+							<article class="background" style="background: url(\'./images/js1200_400.jpg\') no-repeat;">
+								<h1>Rock Guitar</h1>
+								<p>
+									Back in senior year of high school, I started playing a game called "Guitar Hero". At the time the hardest song out there was,<br />
+									Guitar Hero 2\'s "Jordan" by BucketHead. After playing for a while, I began listening to buckethead a lot, and then I picked up my <br />
+									first guitar. Over the past 5 years I\'ve gotten good enough to play almost any song, by ear, just listening to it a few times.
+								</p>
+							</article>
+							<article class="background alt" style="background: url(\'./images/js1200_400.jpg\') no-repeat;">
+								<h1>Rock Guitar</h1>
+								<p>
+									Back in senior year of high school, I started playing a game called "Guitar Hero". At the time the hardest song out there was,<br />
+									Guitar Hero 2\'s "Jordan" by BucketHead. After playing for a while, I began listening to buckethead a lot, and then I picked up my <br />
+									first guitar. Over the past 5 years I\'ve gotten good enough to play almost any song, by ear, just listening to it a few times.
+								</p>
+							</article>
+						</section>
+						<h3>Computers and Technology</h3>
+						<section class="headimg" id="tech">
+							<article class="background" style="background: url(\'./images/js1200_400.jpg\') no-repeat;">
+								<h1>Rock Guitar</h1>
+								<p>
+									Back in senior year of high school, I started playing a game called "Guitar Hero". At the time the hardest song out there was,<br />
+									Guitar Hero 2\'s "Jordan" by BucketHead. After playing for a while, I began listening to buckethead a lot, and then I picked up my <br />
+									first guitar. Over the past 5 years I\'ve gotten good enough to play almost any song, by ear, just listening to it a few times.
+								</p>
+							</article>
+							<article class="background alt" style="background: url(\'./images/js1200_400.jpg\') no-repeat;">
+								<h1>Rock Guitar</h1>
+								<p>
+									Back in senior year of high school, I started playing a game called "Guitar Hero". At the time the hardest song out there was,<br />
+									Guitar Hero 2\'s "Jordan" by BucketHead. After playing for a while, I began listening to buckethead a lot, and then I picked up my <br />
+									first guitar. Over the past 5 years I\'ve gotten good enough to play almost any song, by ear, just listening to it a few times.
+								</p>
+							</article>
+						</section>
+						<h3>The Sciences</h3>
+						<section class="headimg" id="sci">
+							<article class="background" style="background: url(\'./images/js1200_400.jpg\') no-repeat;">
+								<h1>Rock Guitar</h1>
+								<p>
+									Back in senior year of high school, I started playing a game called "Guitar Hero". At the time the hardest song out there was,<br />
+									Guitar Hero 2\'s "Jordan" by BucketHead. After playing for a while, I began listening to buckethead a lot, and then I picked up my <br />
+									first guitar. Over the past 5 years I\'ve gotten good enough to play almost any song, by ear, just listening to it a few times.
+								</p>
+							</article>
+							<article class="background alt" style="background: url(\'./images/js1200_400.jpg\') no-repeat;">
+								<h1>Rock Guitar</h1>
+								<p>
+									Back in senior year of high school, I started playing a game called "Guitar Hero". At the time the hardest song out there was,<br />
+									Guitar Hero 2\'s "Jordan" by BucketHead. After playing for a while, I began listening to buckethead a lot, and then I picked up my <br />
+									first guitar. Over the past 5 years I\'ve gotten good enough to play almost any song, by ear, just listening to it a few times.
+								</p>
+							</article>
+						</section>
+						<h3>Entertainment</h3>
+						<section class="headimg" id="entertain">
+							<article class="background" style="background: url(\'./images/js1200_400.jpg\') no-repeat;">
+								<h1>Rock Guitar</h1>
+								<p>
+									Back in senior year of high school, I started playing a game called "Guitar Hero". At the time the hardest song out there was,<br />
+									Guitar Hero 2\'s "Jordan" by BucketHead. After playing for a while, I began listening to buckethead a lot, and then I picked up my <br />
+									first guitar. Over the past 5 years I\'ve gotten good enough to play almost any song, by ear, just listening to it a few times.
+								</p>
+							</article>
+							<article class="background alt" style="background: url(\'./images/js1200_400.jpg\') no-repeat;">
+								<h1>Rock Guitar</h1>
+								<p>
+									Back in senior year of high school, I started playing a game called "Guitar Hero". At the time the hardest song out there was,<br />
+									Guitar Hero 2\'s "Jordan" by BucketHead. After playing for a while, I began listening to buckethead a lot, and then I picked up my <br />
+									first guitar. Over the past 5 years I\'ve gotten good enough to play almost any song, by ear, just listening to it a few times.
+								</p>
+							</article>
+						</section>
+					</section>
+				';
+
+				echo $echo;
+
+				exit;
+			}else if(strpos($submitDoc,'philosophies') !== false){
+
+				$echo = '
+					<section class="thewho">
+						<header>
+							<h1>My Hobbies</h1><br />
+							<h5>These Are My Many Interests<br />
+							& The Things That Drive Me</h5>
+						</header>
+						<menu>
+							<a href="#" anchor="#art"><img class="headlink" src="./images/music200.jpg" alt="Creativity" /></a>
+							<a href="#" anchor="#tech"><img class="headlink" src="./images/oldpc.jpg" alt="Technology" /></a>
+							<a href="#" anchor="#sci"><img class="headlink" src="./images/science.jpg" alt="Science" /></a>
+							<a href="#" anchor="#entertain"><img class="headlink" src="./images/movie.jpg" alt="Entertainment" /></a>
+						</menu>
+						<h3>Methods of Creativity</h3>
+						<section class="headimg" id="art">
+							<article class="background" style="background: url(\'./images/js1200_400.jpg\') no-repeat;">
+								<h1>Rock Guitar</h1>
+								<p>
+									Back in senior year of high school, I started playing a game called "Guitar Hero". At the time the hardest song out there was,<br />
+									Guitar Hero 2\'s "Jordan" by BucketHead. After playing for a while, I began listening to buckethead a lot, and then I picked up my <br />
+									first guitar. Over the past 5 years I\'ve gotten good enough to play almost any song, by ear, just listening to it a few times.
+								</p>
+							</article>
+							<article class="background alt" style="background: url(\'./images/js1200_400.jpg\') no-repeat;">
+								<h1>Rock Guitar</h1>
+								<p>
+									Back in senior year of high school, I started playing a game called "Guitar Hero". At the time the hardest song out there was,<br />
+									Guitar Hero 2\'s "Jordan" by BucketHead. After playing for a while, I began listening to buckethead a lot, and then I picked up my <br />
+									first guitar. Over the past 5 years I\'ve gotten good enough to play almost any song, by ear, just listening to it a few times.
+								</p>
+							</article>
+						</section>
+						<h3>Computers and Technology</h3>
+						<section class="headimg" id="tech">
+							<article class="background" style="background: url(\'./images/js1200_400.jpg\') no-repeat;">
+								<h1>Rock Guitar</h1>
+								<p>
+									Back in senior year of high school, I started playing a game called "Guitar Hero". At the time the hardest song out there was,<br />
+									Guitar Hero 2\'s "Jordan" by BucketHead. After playing for a while, I began listening to buckethead a lot, and then I picked up my <br />
+									first guitar. Over the past 5 years I\'ve gotten good enough to play almost any song, by ear, just listening to it a few times.
+								</p>
+							</article>
+							<article class="background alt" style="background: url(\'./images/js1200_400.jpg\') no-repeat;">
+								<h1>Rock Guitar</h1>
+								<p>
+									Back in senior year of high school, I started playing a game called "Guitar Hero". At the time the hardest song out there was,<br />
+									Guitar Hero 2\'s "Jordan" by BucketHead. After playing for a while, I began listening to buckethead a lot, and then I picked up my <br />
+									first guitar. Over the past 5 years I\'ve gotten good enough to play almost any song, by ear, just listening to it a few times.
+								</p>
+							</article>
+						</section>
+						<h3>The Sciences</h3>
+						<section class="headimg" id="sci">
+							<article class="background" style="background: url(\'./images/js1200_400.jpg\') no-repeat;">
+								<h1>Rock Guitar</h1>
+								<p>
+									Back in senior year of high school, I started playing a game called "Guitar Hero". At the time the hardest song out there was,<br />
+									Guitar Hero 2\'s "Jordan" by BucketHead. After playing for a while, I began listening to buckethead a lot, and then I picked up my <br />
+									first guitar. Over the past 5 years I\'ve gotten good enough to play almost any song, by ear, just listening to it a few times.
+								</p>
+							</article>
+							<article class="background alt" style="background: url(\'./images/js1200_400.jpg\') no-repeat;">
+								<h1>Rock Guitar</h1>
+								<p>
+									Back in senior year of high school, I started playing a game called "Guitar Hero". At the time the hardest song out there was,<br />
+									Guitar Hero 2\'s "Jordan" by BucketHead. After playing for a while, I began listening to buckethead a lot, and then I picked up my <br />
+									first guitar. Over the past 5 years I\'ve gotten good enough to play almost any song, by ear, just listening to it a few times.
+								</p>
+							</article>
+						</section>
+						<h3>Entertainment</h3>
+						<section class="headimg" id="entertain">
+							<article class="background" style="background: url(\'./images/js1200_400.jpg\') no-repeat;">
+								<h1>Rock Guitar</h1>
+								<p>
+									Back in senior year of high school, I started playing a game called "Guitar Hero". At the time the hardest song out there was,<br />
+									Guitar Hero 2\'s "Jordan" by BucketHead. After playing for a while, I began listening to buckethead a lot, and then I picked up my <br />
+									first guitar. Over the past 5 years I\'ve gotten good enough to play almost any song, by ear, just listening to it a few times.
+								</p>
+							</article>
+							<article class="background alt" style="background: url(\'./images/js1200_400.jpg\') no-repeat;">
+								<h1>Rock Guitar</h1>
+								<p>
+									Back in senior year of high school, I started playing a game called "Guitar Hero". At the time the hardest song out there was,<br />
+									Guitar Hero 2\'s "Jordan" by BucketHead. After playing for a while, I began listening to buckethead a lot, and then I picked up my <br />
+									first guitar. Over the past 5 years I\'ve gotten good enough to play almost any song, by ear, just listening to it a few times.
+								</p>
+							</article>
+						</section>
 					</section>
 				';
 

@@ -302,20 +302,40 @@ H5 {
   background-repeat: no-repeat;
   cursor: pointer;
   z-index: 22;
+  -moz-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
-/* line 186, scss/index.scss */
+/* line 187, scss/index.scss */
 #gallery-con #thumbnails .icon-play {
   background-position: 0 0;
+  -moz-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
-/* line 189, scss/index.scss */
+/* line 191, scss/index.scss */
 #gallery-con #thumbnails .icon-pause {
   background-position: -32px 0;
-}
-/* line 192, scss/index.scss */
-#gallery-con #thumbnails .icon-arrow-right {
-  background-position: -64px 0;
+  -moz-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 /* line 195, scss/index.scss */
+#gallery-con #thumbnails .icon-arrow-right {
+  background-position: -64px 0;
+  -moz-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+/* line 199, scss/index.scss */
 #gallery-con #thumbnails .icon-arrow-left {
   background-position: -96px 0;
+  -moz-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }

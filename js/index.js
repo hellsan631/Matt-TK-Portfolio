@@ -3,16 +3,17 @@ var curradd = current[0]+splitkey+current[1];
 var article = false;
 var articleStore = [];
 var popupStatus = 0;
+var $loadcount = 0;
 var $bodyheader = $('#body-header');
 var $body = $("body");
 var $background = $("#background");
 var $content = $("#content");
 var $root = $('html, body');
-var $loadcount = 0;
-
+var $nodice = $('#nodice');
+var $currentHobby = "0d";
 $(document).ready(function(){
 
-	$background.live('click', function () {
+	$background.on('click', function () {
 		popupClose();
 	});
 	//Press Escape event!
@@ -30,7 +31,7 @@ $(document).ready(function(){
 
 	$('#menu-con a[href$="'+ajaxkey+sidemenu+'"]').find('span').addClass('selected-mi');
 
-	$('#content-menu .menu-item').on('click', function () {
+	$('#content-menu .menu-item').live('click', function () {
 
 		$(this).parent().find('.selected-mi').removeClass('selected-mi');
 		$(this).find('span').addClass('selected-mi');
@@ -48,15 +49,15 @@ $(document).ready(function(){
 		}, 300);
     });
 
-	$('.pictures img').on('click', function () {
+	$('.pictures img').live('click', function () {
 		popupimage(this);
 	});
 
-	$('.image').on('click', function () {
+	$('.image').live('click', function () {
 		popupimage(this);
 	});
 
-	$('#menu-con .menu-item').on('click', function () {
+	$('#menu-con .menu-item').live('click', function () {
 
 		$(this).parent().find('.selected-mi').removeClass('selected-mi');
 		$(this).find('span').addClass('selected-mi');
@@ -75,16 +76,36 @@ $(document).ready(function(){
 		}, 300);
     });
 
-	$('#content a').on('click', function () {
+	$('#content a').live('click', function () {
 		linkhandler(this);
-		//testAnim();
 	});
 
 	$(window).resize(function () {
 		centerPopup();
 	});
 
+	$(".headimg img").live('click', function(){
+		showStory(this)
+	});
+
 });//end of document ready
+
+function showStory(link){
+
+	$("#"+$(link).attr("target")).html($(link).attr("alt"));
+
+}
+
+function cleanArray(actual){
+	var newArray = new Array();
+	for(var i = 0; i<actual.length; i++){
+		if (actual[i]){
+			newArray.push(actual[i]);
+		}
+	}
+
+	return newArray;
+}
 
 function linkhandler(link){
 
@@ -94,7 +115,9 @@ function linkhandler(link){
     	setTimeout(function () {
 
 			var request = getUrlVars();
-			console.log(request);
+
+			request = cleanArray(request);
+
 			if(stringeq(current[0],request[0]) && stringeq(current[1],request[1]) && !article){
 				//do nothing if they are equal
 			}else if(request.length > 4 || request.length < 2){
@@ -140,15 +163,6 @@ function welcome(){
 		}, 3500);
 
 	}, 400);
-
-
-}
-
-function popupimage(obj){
-	var toURL = $(obj).attr('alt');
-
-	$('#nodice').html('<img id="nodiceimg" src="'+toURL+'" />');
-	$('#nodiceimg').load(popupImgDisplay(document.getElementById('nodiceimg')));
 
 }
 
@@ -197,6 +211,8 @@ function assembleMenu(page){
 		return page+splitkey+"who";
 	}else if(stringeq(page,"blog")){
 		return page+splitkey+"web";
+	}else if(stringeq(page,"tour")){
+		return page+splitkey+"start";
 	}
 
 	return page+splitkey+"business";
@@ -279,7 +295,6 @@ function stringeq(string1, string2){
 
 function getUrlVars(){
     var vars = [], hash;
-    console.log(vars);
     var hashes = window.location.href.slice(window.location.href.indexOf(ajaxkey)+ajaxkey.length).split(splitkey);
     for(var i = 0; i < hashes.length; i++)
     {
@@ -290,7 +305,14 @@ function getUrlVars(){
     return vars;
 }
 
+function popupimage(obj){
+	var toURL = $(obj).attr('alt');
+	$nodice.html('<img id="nodiceimg" src="'+toURL+'" />');
+	$('#nodiceimg').load(popupImgDisplay(document.getElementById('nodiceimg')));
+}
+
 function popupImgDisplay(img){
+
 	setTimeout(function () {
 
 		if(img.width <= 10){
@@ -331,25 +353,26 @@ function popupImgDisplay(img){
 			"height": img.height,
 			"position": "fixed",
 			"top": topnum,
-			"left": widthnum
+			"left": widthnum,
+			"z-index": "5"
 		};
 
-		$("#nodice").css(csshash);
+		$nodice.css(csshash);
 
-		$background.css("z-index", "10");
-		$background.animate({opacity: 1}, 700);
+		$background.css({"z-index": "4", display: "block"});
+		setTimeout(function () {$background.css({opacity: 1, transition: "opacity 0.5s ease"});}, 50);
+
 
 	}, 50);
 }
 
 function popupClose(){
 	popupStatus = 0;
-	$background.animate({opacity: 0}, 500, function() {
-		$background.css({
-			"z-index": "-1"
-		});
-	});
+	$background.css({"z-index": "-2", display: "block"});
+	setTimeout(function () {$background.css({opacity: 0, transition: "opacity 0.5s ease"});}, 50);
+	$nodice.css({"z-index": "-1"});
 	$body.css("overflow", "auto");
+	toggleScroll(false);
 }
 
 function centerPopup(){
@@ -383,6 +406,6 @@ function centerPopup(){
 			"left": widthnum
 		};
 
-		$("#nodice").css(csshash);
+		$nodice.css(csshash);
 	}
 }
